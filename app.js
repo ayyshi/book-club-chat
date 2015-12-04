@@ -19,7 +19,7 @@ db.once('open', function (callback) {
 });
 
 const userRoutes = require('./routes/userRoutes');
-const bookRoutes = require('./routes/bookRoutes');
+const searchRoutes = require('./routes/searchRoutes');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -29,7 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 /* add angular static route */
 // app.use('/', express.static(__dirname + '/public'));
-app.use('/api', bookRoutes);
+app.use('/search', searchRoutes);
 // app.use('/scripts', express.static(__dirname + '/node_modules'));
 
 server.listen(app.get('port'), () => {
