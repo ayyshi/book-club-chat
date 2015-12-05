@@ -75,7 +75,6 @@ module.exports = {
   create: create,
   retrieve: retrieve,
   update: update,
-  addWins: addWins,
   destroy: destroy,
   auth: auth
 }
