@@ -28,9 +28,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* add angular static route */
-// app.use('/', express.static(__dirname + '/public'));
-app.use('/search', searchRoutes);
-// app.use('/scripts', express.static(__dirname + '/node_modules'));
+app.use('/', express.static(__dirname + '/public'));
+app.use('/scripts', express.static(__dirname + '/node_modules'));
+app.use(searchRoutes);
+app.use(userRoutes);
 
 server.listen(app.get('port'), () => {
   let host = server.address().address;
