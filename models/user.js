@@ -3,11 +3,12 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const secret = "ihdfioahdfoihasd";
+const BookSchema = require('./book.js').schema;
 
 let UserSchema = new mongoose.Schema({
   username:   {type: String, required: true, unique: true},
   password:   {type: String, required: true},
-  avatar_url: {type: String},
+  bio:        {type: String},
   books:      [{
                   type: mongoose.Schema.Types.ObjectId,
                   ref: 'Book'
