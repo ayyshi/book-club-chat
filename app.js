@@ -20,6 +20,7 @@ db.once('open', function (callback) {
 
 const userRoutes = require('./routes/userRoutes');
 const searchRoutes = require('./routes/searchRoutes');
+const bookRoutes = require('./routes/bookRoutes');
 
 app.set('port', process.env.PORT || 3000);
 
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', express.static(__dirname + '/public'));
 app.use('/scripts', express.static(__dirname + '/node_modules'));
 app.use('/search', searchRoutes);
+app.use('/books', bookRoutes);
 app.use(userRoutes);
 
 server.listen(app.get('port'), () => {
