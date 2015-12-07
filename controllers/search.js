@@ -13,7 +13,7 @@ function searchByTerm(req, res){
   request(searchURL, (err, response, body) => {
     let results = JSON.parse(body).items;
 
-    res.json(results);
+    res.send(results);
   });
 }
 
@@ -23,7 +23,7 @@ function searchByTitle(req, res){
   request(searchURL, (err, response, body) => {
     let results = JSON.parse(body).items;
 
-    res.json(results);
+    res.send(results);
   });
 }
 
@@ -33,7 +33,7 @@ function searchByAuthor(req, res){
   request(searchURL, (err, response, body) => {
     let results = JSON.parse(body).items;
 
-    res.json(results);
+    res.send(results);
   });
 }
 
