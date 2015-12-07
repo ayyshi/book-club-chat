@@ -2,17 +2,17 @@
 
 const express     = require('express');
 const router      = express.Router();
-const book        = require('../controllers/searchController');
+const book        = require('../controllers/search');
 
-router.route('/:searchTerm')
+router.route('/term/:searchTerm')
   //search by terms
-  .get(book.search)
+  .get(book.searchByTerm)
 
-router.route('/:searchTitle')
+router.route('/title/:searchTitle')
   //by title
   .get(book.searchByTitle);
 
-router.route('/:searchAuthor')
+router.route('/author/:searchAuthor')
   //by author
   .get(book.searchByAuthor);
 
