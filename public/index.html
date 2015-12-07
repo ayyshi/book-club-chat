@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html ng-app="TheBookApp">
+<html>
   <head>
     <meta charset="utf-8">
     <title>Bookclub Chatroom</title>
     <link rel="stylesheet" href="/css/style.css" charset="utf-8">
     <script type="text/javascript" src="scripts/angular/angular.js"></script>
-    <script type="text/javascript" src="js/searchController.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   </head>
-  <body>
+  <body ng-app="TheBookApp">
     <section ng-controller="SearchController as results">
       <form class="search-books">
         <input type="text" id="search-term" placeholder="Search Term" ng-model="results.searchTerm">
@@ -21,13 +22,14 @@
       </form>
 
       <h1>Search Results</h1>
-      <ul id="Results">
-        <li ng-repeat="result in results.all">
+      <ul id="Results" ng-controller="BookController as books">
+        <li id="{{result.id}}" ng-repeat="result in results.all">
           <strong>{{ result.volumeInfo.title }}</strong><br>
           <em ng-repeat="author in result.volumeInfo.authors">
             {{ author }}<br>
           </em>
           <img src="{{result.volumeInfo.imageLinks.smallThumbnail}}"></img>
+          <button type="button" ng-click="books.addBook(result)">save book</button>
         </li>
       </ul>
     </section>
