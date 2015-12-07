@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 /* add angular static route */
 app.use('/', express.static(__dirname + '/public'));
 app.use('/scripts', express.static(__dirname + '/node_modules'));
-app.use(searchRoutes);
+app.use('/search', searchRoutes);
 app.use(userRoutes);
 
 server.listen(app.get('port'), () => {
