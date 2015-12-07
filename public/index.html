@@ -5,14 +5,23 @@
     <title>Bookclub Chatroom</title>
     <link rel="stylesheet" href="/css/style.css" charset="utf-8">
     <script type="text/javascript" src="scripts/angular/angular.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/searchController.js"></script>
   </head>
   <body>
     <section ng-controller="SearchController as results">
+      <form class="search-books">
+        <input type="text" id="search-term" placeholder="Search Term" ng-model="results.searchTerm">
+        <button type="button" ng-click="results.getSearch()">Search</button><br>
+
+        <input type="text" id="search-title" placeholder="Book Title" ng-model="results.searchTitle">
+        <button type="button" ng-click="results.getTitleSearch()">Title Search</button><br>
+
+        <input type="text" id="search-author" placeholder="Author Name" ng-model="results.searchAuthor">
+        <button type="button" ng-click="results.getAuthorSearch()">Author Search</button>
+      </form>
+
       <h1>Search Results</h1>
       <ul id="Results">
-        <!-- presidents.all is show function -->
         <li ng-repeat="result in results.all">
           <strong>{{ result.volumeInfo.title }}</strong><br>
           <em ng-repeat="author in result.volumeInfo.authors">
