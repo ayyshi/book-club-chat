@@ -8,9 +8,16 @@ $(function(){
 
   // chat starts on book selection or anon default
   $(document.body).on('click', 'button.start-chat', function(event){
+    let bookname = $('button.start-chat').val();
     let username = window.prompt('enter username', 'username');
+
+    let obj = {
+      bookname: bookname,
+      username: username
+    };
+
     myUser = username;
-    socket.emit('add user', username + ' joined the room');
+    socket.emit('add user', obj);
   });
 
   $('#message').keypress(function(event){
