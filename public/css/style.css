@@ -1,5 +1,5 @@
 body {
-  background-image: url("/home/amy/WDI/book-club/public/images/wood.png");
+  background-image: url("/images/wood.png");
   margin: auto 100px auto 100px;
   font-family: sans-serif;
 }
@@ -38,6 +38,11 @@ ul#Results {
     width: 25%;
     padding: 10px;
     margin: 0;
+}
+
+input#login-input {
+  width: 300px;
+  height: 20px;
 }
 
 #messages {

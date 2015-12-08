@@ -55,7 +55,6 @@ function BookController ($http) {
   getBooks();
 
   function getBooks(){
-
     $http
       .get('http://localhost:3000/books/')
       .then(function(response){
@@ -73,8 +72,7 @@ function BookController ($http) {
 
     $http
       .post('http://localhost:3000/books/', newBook)
-      .then(function(error, response){
-        if(error) console.log('already saved this book')
+      .then(function(response){
         window.alert('book saved!');
       });
   }

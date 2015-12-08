@@ -39,7 +39,7 @@
             {{ author }}<br>
           </em>
           <img src="{{result.volumeInfo.imageLinks.smallThumbnail}}"></img><br>
-          <button type="button" ng-click="books.addBook(result)">save book</button>
+          <button type="button" class="start-chat" value="{{result.id}}" ng-click="books.addBook(result)">start chat</button>
         </li>
       </ul>
     </section>
@@ -53,16 +53,12 @@
             <strong>{{ book.title }}</strong><br>
             <em>{{ book.authors }}</em><br>
             <img src="{{book.img_url}}"></img><br>
+            <button class="start-chat" value="{{book.book_id}}">join chat</button>
           </li>
         </ul>
       </div>
 
       <h2>Chat about books here</h2>
-      <div id="loginpage">
-        <div class="loginform">
-            <input type="text" id="login-input" placeholder="username and press enter">
-        </div>
-      </div>
 
       <div class="current-chat">
 
