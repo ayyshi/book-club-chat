@@ -2,12 +2,12 @@
 
 angular.module('TheBookApp', [])
   .controller('SearchController', SearchController)
-  .controller('BookController', BookController)
+  .controller('BookController', BookController);
 
 SearchController.$inject = ['$http'];
 BookController.$inject = ['$http'];
 
-function SearchController ($http) {
+function SearchController($http) {
   let self = this;
 
   self.all = [];
@@ -16,33 +16,30 @@ function SearchController ($http) {
   self.getAuthorSearch = getAuthorSearch;
 
   function getSearch(){
-
     $http
       .get('http://localhost:3000/search/term/' + self.searchTerm)
       .then(function(response){
         self.all = response.data;
       });
-  }
+  };
 
   function getTitleSearch(){
-
     $http
       .get('http://localhost:3000/search/title/' + self.searchTitle)
       .then(function(response){
         self.all = response.data;
       });
-  }
+  };
 
   function getAuthorSearch(){
-
     $http
       .get('http://localhost:3000/search/author/' + self.searchAuthor)
       .then(function(response){
         self.all = response.data;
       });
-  }
+  };
 
-}
+};
 
 function BookController ($http) {
   let self = this;
@@ -60,7 +57,7 @@ function BookController ($http) {
       .then(function(response){
         self.all = response.data;
       });
-  }
+  };
 
   function addBook(result){
     let newBook = {
@@ -68,13 +65,13 @@ function BookController ($http) {
       title: result.volumeInfo.title,
       authors: result.volumeInfo.authors,
       img_url: result.volumeInfo.imageLinks.smallThumbnail
-    }
+    };
 
     $http
       .post('http://localhost:3000/books/', newBook)
       .then(function(response){
         window.alert('book saved!');
       });
-  }
+  };
 
-}
+};
