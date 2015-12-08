@@ -1,1 +1,106 @@
-iflgdskg;asdugiagdf
+body {
+  background-image: url("/home/amy/WDI/book-club/public/images/wood.png");
+  margin: auto 100px auto 100px;
+  font-family: sans-serif;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+header {
+  text-align: center;
+}
+
+section {
+  text-align: center;
+  display: inline-block;
+}
+
+section.book {
+  float: left;
+  position: relative;
+  width: 45%;
+  list-style: none;
+}
+
+ul#Results {
+    display: inline-block;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+}
+
+.book li {
+    display: inline-table;
+    box-sizing: border-box;
+    width: 25%;
+    padding: 10px;
+    margin: 0;
+}
+
+#messages {
+  width: 100%;
+  height: 300px;
+  box-sizing: border-box;
+  border: 5px solid black;
+  border-radius: 10px;
+  text-align: justify;
+  margin: 10px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+textarea {
+  width: 100%;
+  margin: 10px;
+  box-sizing: border-box;
+  border: 5px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+  float: left;
+}
+
+.current-chat ul {
+  list-style: none;
+  padding: 0px;
+}
+
+form button{
+  width: 150px;
+}
+
+section.chatroom {
+  float: right;
+  text-align: center;
+  width: 45%;
+}
+
+#form button {
+  width: 20%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.book-listing {
+  width: 100%;
+  margin: 10px;
+  height: 300px;
+  overflow: scroll;
+  box-sizing: border-box;
+  border: 2px solid black;
+}
+
+.book-listing ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.book-listing li {
+  display: inline-table;
+  margin: 10px;
+  width: 20%;
+}
