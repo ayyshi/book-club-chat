@@ -1,6 +1,6 @@
 body {
   background-image: url("/images/wood.png");
-  margin: auto 100px auto 100px;
+  margin: auto 100px;
   font-family: sans-serif;
 }
 
@@ -16,6 +16,7 @@ header {
 section {
   text-align: center;
   display: inline-block;
+  margin-bottom: 50px;
 }
 
 section.book {
@@ -85,7 +86,6 @@ section.chatroom {
 
 #form button {
   width: 20%;
-  margin: 0px;
   padding: 0px;
 }
 
