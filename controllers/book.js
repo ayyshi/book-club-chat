@@ -14,11 +14,17 @@ function newBook(req, res){
   console.log(req.body);
 
   let bookObject = new Book(req.body);
+  let bookToSave = Book.find({'book_id': req.body.book_id});
 
-  bookObject.save((err, book) => {
-    if(err) res.status(401).send({message: err.errmsg});
+  if(!bookToSave) {
+    bookObject.save((err, book) => {
+      if(err) res.status(401).send({message: err.errmsg});
       res.status(200).json({book: book});
-  });
+    });
+  } else {
+    console.log('book already saved!');
+  }
+
 }
 
 module.exports = {
