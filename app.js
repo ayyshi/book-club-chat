@@ -18,7 +18,6 @@ db.once('open', function (callback) {
   console.log('mongoose connected');
 });
 
-const userRoutes = require('./routes/userRoutes');
 const searchRoutes = require('./routes/searchRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 
@@ -33,7 +32,40 @@ app.use('/', express.static(__dirname + '/public'));
 app.use('/scripts', express.static(__dirname + '/node_modules'));
 app.use('/search', searchRoutes);
 app.use('/books', bookRoutes);
-app.use(userRoutes);
+
+let users = [];
+let addedUser = false;
+
+io.on('connection', function(client){
+  console.log('user has connected');
+
+  client.on('add user', function(username){
+    var userObj = {};
+    userObj.name = username;
+    userObj.id = client.id;
+    users.push(userObj);
+    addedUser = true;
+    // emit sends to all clients in all rooms with user joined
+    io.emit('user joined', users);
+  });
+
+  client.on('send message', function(data){
+    io.emit('send message', data);
+  });
+
+  client.on('disconnect', function(){
+    console.log('user has disconnected');
+    if(addedUser){
+      users.forEach(function(user){
+        if(user.id === client.id){
+          users.splice(users.indexOf(user), 1);
+        }
+      })
+    }
+    io.emit('user joined', users);
+  });
+});
+
 
 server.listen(app.get('port'), () => {
   let host = server.address().address;
