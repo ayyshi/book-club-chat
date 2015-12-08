@@ -2,26 +2,20 @@
 
 let socket = io();
 let myUser;
+let newRoom;
 
 $(function(){
-  // hide current chat from users not logged into the chat
-  $('.current-chat').hide();
 
-  $('#login-input').keypress(function(event){
-    if(event.keyCode === 13){
-      var username = $('#login-input').val();
-      myUser = username;
-      // send to server
-      socket.emit('add user', username + ' joined the room');
-      $('.current-chat').show();
-      $('#login-input').val('');
-      $('#loginpage').hide();
-    }
+  // chat starts on book selection or anon default
+  $(document.body).on('click', 'button.start-chat', function(event){
+    let username = window.prompt('enter username', 'username');
+    myUser = username;
+    socket.emit('add user', username + ' joined the room');
   });
 
   $('#message').keypress(function(event){
     if(event.keyCode === 13){
-      var message = $('#message').val();
+      let message = $('#message').val();
       socket.emit('send message', {name: myUser, message: message})
       $('#message').val('');
     }
