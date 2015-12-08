@@ -4,8 +4,13 @@ const request     = require('request');
 const bodyParser  = require('body-parser');
 const Book        = require('../models/book');
 
+function getAll(req, res){
+  Book.find((err, books) => {
+    res.send(books);
+  })
+}
+
 function newBook(req, res){
-  console.log('hitting this route');
   console.log(req.body);
 
   let bookObject = new Book(req.body);
@@ -17,5 +22,6 @@ function newBook(req, res){
 }
 
 module.exports = {
+  getAll: getAll,
   newBook: newBook
 }
