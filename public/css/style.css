@@ -50,7 +50,7 @@ input#login-input {
   width: 100%;
   height: 300px;
   box-sizing: border-box;
-  border: 5px solid black;
+  border: 2px solid black;
   border-radius: 10px;
   text-align: justify;
   margin: 10px;
@@ -62,7 +62,7 @@ textarea {
   width: 100%;
   margin: 10px;
   box-sizing: border-box;
-  border: 5px solid black;
+  border: 2px solid black;
   border-radius: 10px;
   padding: 10px;
   position: relative;
@@ -93,9 +93,9 @@ section.chatroom {
   width: 100%;
   margin: 10px;
   height: 300px;
-  overflow: scroll;
   box-sizing: border-box;
   border: 2px solid black;
+  border-radius: 10px;
 }
 
 .book-listing ul {
