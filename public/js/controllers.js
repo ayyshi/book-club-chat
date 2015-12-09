@@ -43,8 +43,7 @@ function SearchController($http) {
 
 function BookController ($http) {
   let self = this;
-
-  // crud functions
+  
   self.all        = [];
   self.getBooks   = getBooks;
   self.addBook    = addBook;
