@@ -34,16 +34,18 @@
 
       <!-- search results display -->
       <h2>Search Results</h2>
-      <ul id="Results" ng-controller="BookController as books">
-        <li id="{{result.id}}" ng-repeat="result in results.all">
-          <strong>{{ result.volumeInfo.title }}</strong><br>
-          <em ng-repeat="author in result.volumeInfo.authors">
-            {{ author }}<br>
-          </em>
-          <img src="{{result.volumeInfo.imageLinks.smallThumbnail}}"></img><br>
-          <button type="button" class="start-chat" value="{{result.id}}" ng-click="books.addBook(result)">start chat</button>
-        </li>
-      </ul>
+      <div class="results">
+        <ul id="Results" ng-controller="BookController as books">
+          <li id="{{result.id}}" ng-repeat="result in results.all">
+            <strong>{{ result.volumeInfo.title }}</strong><br>
+            <em ng-repeat="author in result.volumeInfo.authors">
+              {{ author }}<br>
+            </em>
+            <img src="{{result.volumeInfo.imageLinks.smallThumbnail}}"></img><br>
+            <button type="button" class="start-chat" value="{{result.id}}" ng-click="books.addBook(result)">start chat</button>
+          </li>
+        </ul>
+      </div>
     </section>
 
     <!-- socket chat divs -->
