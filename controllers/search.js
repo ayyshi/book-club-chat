@@ -5,7 +5,7 @@ const request     = require('request');
 const bodyParser  = require('body-parser');
 
 // must set as env variable when deployed
-const apiKey = "";
+const apiKey = process.env.APIKEY;
 
 function searchByTerm(req, res){
 
