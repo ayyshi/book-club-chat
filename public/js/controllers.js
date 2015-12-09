@@ -43,7 +43,7 @@ function SearchController($http) {
 
 function BookController ($http) {
   let self = this;
-  
+
   self.all        = [];
   self.getBooks   = getBooks;
   self.addBook    = addBook;
