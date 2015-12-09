@@ -45,9 +45,10 @@ function BookController ($http) {
   let self = this;
 
   // crud functions
-  self.all = [];
-  self.getBooks = getBooks;
-  self.addBook = addBook;
+  self.all        = [];
+  self.getBooks   = getBooks;
+  self.addBook    = addBook;
+  self.deleteBook = deleteBook;
 
   getBooks();
 
@@ -71,6 +72,16 @@ function BookController ($http) {
       .post('http://localhost:3000/books/', newBook)
       .then(function(response){
         window.alert('book saved!');
+        self.all.push(newBook);
+      });
+  };
+
+  function deleteBook(book){
+    $http
+      .delete('http://localhost:3000/books/' + book._id, self.deleteBook)
+      .then(function(response){
+        let index = self.all.indexOf(book);
+        self.all.splice(index, 1);
       });
   };
 
