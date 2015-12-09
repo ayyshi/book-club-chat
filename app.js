@@ -7,19 +7,19 @@ const io          = require('socket.io')(server);
 const request     = require('request');
 const bodyParser  = require('body-parser');
 const logger      = require('morgan');
-
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/book-club');
-
-/* check if connected to mongoose */
-let db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function (callback) {
-  console.log('mongoose connected');
-});
+const mongoose    = require('mongoose');
 
 const searchRoutes = require('./routes/searchRoutes');
-const bookRoutes = require('./routes/bookRoutes');
+const bookRoutes   = require('./routes/bookRoutes');
+
+let mongoUri =  process.env.MONGOLAB_URI || 'mongodb://localhost/book-club';
+mongoose.connect(mongoUri, (err) => {
+  if(err) {
+    console.log('MongoLab connection error.', err);
+  } else {
+    console.log('MongoLab connection successful');
+  };
+});
 
 app.set('port', process.env.PORT || 3000);
 

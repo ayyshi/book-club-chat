@@ -11,12 +11,12 @@ function getAll(req, res){
 }
 
 function newBook(req, res){
-  console.log(req.body);
-
   let bookObject = new Book(req.body);
+  // check if the book to be saved is already in the database
   let bookToSave = Book.find({'book_id': req.body.book_id});
 
-  if(!bookToSave) {
+  // if book to be saved is not in the database
+  if(req.body != bookToSave) {
     bookObject.save((err, book) => {
       if(err) res.status(401).send({message: err.errmsg});
       res.status(200).json({book: book});
@@ -27,7 +27,17 @@ function newBook(req, res){
 
 }
 
+function removeBook(req, res){
+  let id = req.params.id;
+
+  Book.remove({_id: id}, function(err){
+    if(err) res.json({message: 'cannot delete: ' + err});
+    res.json({message: 'book deleted!'});
+  })
+}
+
 module.exports = {
   getAll: getAll,
-  newBook: newBook
+  newBook: newBook,
+  removeBook: removeBook
 }
