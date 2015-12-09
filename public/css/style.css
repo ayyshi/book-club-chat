@@ -31,11 +31,17 @@ ul#Results {
     padding: 0px;
     margin: 0px;
     width: 100%;
-    height: 600px;
-    box-sizing: border-box;
-    border: 2px solid black;
-    border-radius: 10px;
-    overflow-y: auto;
+}
+
+.results {
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 600px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
 }
 
 .book li {
@@ -98,16 +104,16 @@ section.chatroom {
   width: 100%;
   margin: 10px;
   height: 300px;
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow: auto;
 }
 
 .book-listing ul {
   margin: 0px;
   padding: 0px;
   list-style: none;
-  box-sizing: border-box;
-  border: 2px solid black;
-  border-radius: 10px;
-  overflow: auto;
 }
 
 .book-listing li {
