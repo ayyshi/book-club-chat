@@ -17,7 +17,7 @@ function SearchController($http) {
 
   function getSearch(){
     $http
-      .get('http://localhost:3000/search/term/' + self.searchTerm)
+      .get('https://murmuring-reef-5595.herokuapp.com/search/term/' + self.searchTerm)
       .then(function(response){
         self.all = response.data;
       });
@@ -25,7 +25,7 @@ function SearchController($http) {
 
   function getTitleSearch(){
     $http
-      .get('http://localhost:3000/search/title/' + self.searchTitle)
+      .get('https://murmuring-reef-5595.herokuapp.com/search/title/' + self.searchTitle)
       .then(function(response){
         self.all = response.data;
       });
@@ -33,7 +33,7 @@ function SearchController($http) {
 
   function getAuthorSearch(){
     $http
-      .get('http://localhost:3000/search/author/' + self.searchAuthor)
+      .get('https://murmuring-reef-5595.herokuapp.com/search/author/' + self.searchAuthor)
       .then(function(response){
         self.all = response.data;
       });
@@ -54,7 +54,7 @@ function BookController ($http) {
 
   function getBooks(){
     $http
-      .get('http://localhost:3000/books/')
+      .get('https://murmuring-reef-5595.herokuapp.com/books/')
       .then(function(response){
         self.all = response.data;
       });
@@ -69,7 +69,7 @@ function BookController ($http) {
     };
 
     $http
-      .post('http://localhost:3000/books/', newBook)
+      .post('https://murmuring-reef-5595.herokuapp.com/books/', newBook)
       .then(function(response){
         window.alert('book saved!');
         self.all.push(newBook);
@@ -78,7 +78,7 @@ function BookController ($http) {
 
   function deleteBook(book){
     $http
-      .delete('http://localhost:3000/books/' + book._id, self.deleteBook)
+      .delete('https://murmuring-reef-5595.herokuapp.com/books/' + book._id, self.deleteBook)
       .then(function(response){
         let index = self.all.indexOf(book);
         self.all.splice(index, 1);
