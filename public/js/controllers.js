@@ -17,7 +17,7 @@ function SearchController($http) {
 
   function getSearch(){
     $http
-      .get('https://murmuring-reef-5595.herokuapp.com/search/term/' + self.searchTerm)
+      .get('https://bookclubchat.herokuapp.com/search/term/' + self.searchTerm)
       .then(function(response){
         self.all = response.data;
       });
@@ -25,7 +25,7 @@ function SearchController($http) {
 
   function getTitleSearch(){
     $http
-      .get('https://murmuring-reef-5595.herokuapp.com/search/title/' + self.searchTitle)
+      .get('https://bookclubchat.herokuapp.com/search/title/' + self.searchTitle)
       .then(function(response){
         self.all = response.data;
       });
@@ -33,7 +33,7 @@ function SearchController($http) {
 
   function getAuthorSearch(){
     $http
-      .get('https://murmuring-reef-5595.herokuapp.com/search/author/' + self.searchAuthor)
+      .get('https://bookclubchat.herokuapp.com/search/author/' + self.searchAuthor)
       .then(function(response){
         self.all = response.data;
       });
@@ -53,7 +53,7 @@ function BookController ($http) {
 
   function getBooks(){
     $http
-      .get('https://murmuring-reef-5595.herokuapp.com/books/')
+      .get('https://bookclubchat.herokuapp.com/books/')
       .then(function(response){
         self.all = response.data;
       });
@@ -68,7 +68,7 @@ function BookController ($http) {
     };
 
     $http
-      .post('https://murmuring-reef-5595.herokuapp.com/books/', newBook)
+      .post('https://bookclubchat.herokuapp.com/books/', newBook)
       .then(function(response){
         window.alert('book saved!');
         self.all.push(newBook);
@@ -77,7 +77,7 @@ function BookController ($http) {
 
   function deleteBook(book){
     $http
-      .delete('https://murmuring-reef-5595.herokuapp.com/books/' + book._id, self.deleteBook)
+      .delete('https://bookclubchat.herokuapp.com/books/' + book._id, self.deleteBook)
       .then(function(response){
         let index = self.all.indexOf(book);
         self.all.splice(index, 1);
